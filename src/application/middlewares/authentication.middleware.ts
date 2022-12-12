@@ -57,7 +57,6 @@ export function verifyRefreshToken (token: string): string | JwtPayload {
 export function verifyAccess (req: Request, res: Response, next: NextFunction): void {
   const result = new AppResponse()
   try {
-    console.log(12)
     const auth = req.headers?.authorization
     const token = ((auth?.includes('Bearer')) ?? false) ? auth?.split?.(' ')?.[1] : auth
     if (token == null) throw new Error('Token missing from request')
